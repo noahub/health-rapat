@@ -1,0 +1,131 @@
+<?php
+
+include dirname(__FILE__)."/send_full_results.php";
+
+?> 
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Results | RAPAT Tool</title>
+  <meta property="og:title" content="RAPAT Tool" /> 
+  <meta property="og:url" content="https://health.rapat.org/"/>
+  <meta property="og:type" content="website" /> 
+  <meta property="og:image" content="https://health.rapat.org/repat_logo.png" /> 
+  <meta property="og:description" content="Create a healthcare organization that can contend with growing demands and shrinking resources" />
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" type="text/css" href="media.css">
+<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="survey.css">
+<link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-51525250-10', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<script type="text/javascript">
+  console.log("<?php echo $statusmsg ?>");
+</script>
+
+<style>
+.checkmark__circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+  stroke: #7ac142;
+  fill: none;
+  animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.checkmark {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: block;
+  stroke-width: 2;
+  stroke: #fff;
+  stroke-miterlimit: 10;
+  margin: 40px auto;
+  box-shadow: inset 0px 0px 0px #7ac142;
+  animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+}
+
+.checkmark__check {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes scale {
+  0%, 100% {
+    transform: none;
+  }
+  50% {
+    transform: scale3d(1.1, 1.1, 1);
+  }
+}
+@keyframes fill {
+  100% {
+    box-shadow: inset 0px 0px 0px 30px #7ac142;
+  }
+}
+</style>
+</head>
+<body>
+
+<header class="navbar">
+<div class="container">
+  <!-- <a href="#"><span class="glyphicon glyphicon-menu-left"></span> REPAT</a> -->
+  <a href="index.html"><img src="repat_logo.png" height="60px"></a>
+  <div></div>
+  <div></div>
+  <a class="btn btn-primary" href="contact.php" role="button">Get In Touch</a>
+</div>
+</header>
+
+<section class="main">
+  <div class="container">
+    <h1>Congratulations, you have successfully completed RAPAT!</h1>
+     <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/><path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/></svg>
+     <p>Thank you for voicing your opinion and providing your feedback.</p>     
+</div>
+</section>
+<section>
+  <div class="container">
+  <p>Back to the RAPAT Homepage</p>
+    <a class="btn btn-primary" href="index.html" role="button">RAPAT Home</a>
+  </div>
+</section>
+<section class="blue">
+  <div class="container">
+    <h1>Have questions about RAPAT?</h1>
+    <p>Get in touch with RAPAT to learn more:</p>
+      <a class="btn btn-primary btn-lg" href="contact.php" role="button">Get in Touch</a>
+  </div>
+</section>
+
+</body>
+</html>

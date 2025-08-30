@@ -1,0 +1,34 @@
+@media only screen and (max-width: 715px) {
+#msform {
+    width:100% !important;
+  }
+#msform fieldset {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 20px 10px !important;
+  }
+  .result {
+    width: 100% !important;
+  }
+  .container {
+    width: 85% !important;
+  }
+  form .likert li {
+    text-align: center !important;
+    width: 15% !important;
+  }
+  form .likert li label{
+    font-size: .65em;
+  }
+
+  form .likert {
+    width: 100% !important;
+  }
+  form .likert li input[type=radio]{
+    margin-left: -20px !important;
+  }
+
+  .formcard {
+    width:90% !important;
+  }
+}
