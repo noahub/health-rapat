@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RAPAT Tool</title>
+    <meta property="og:title" content="Get in Touch | RAPAT Tool" />
+    <meta property="og:url" content="https://health.rapat.org/" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="https://health.rapat.org/repat_logo.png"
+    />
+    <meta
+      property="og:description"
+      content="Get in touch now. Discover your budgeting strengths and weaknesses, and how you can improve your process now!"
+    />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"
+    />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="media.css" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Muli:400,300"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="container">
+        <a href="index.html"><img src="repat_logo.png" height="60px" /></a>
+        <div></div>
+        <div></div>
+        <a class="btn btn-primary" href="#" role="button">Get in Touch</a>
+      </div>
+    </header>
+
+    <div class="main">
+      <section>
+        <div class="container">
+          <h1>Want to learn more? We would love to hear from you!</h1>
+          <p>
+            Send us a message below and we will get back to you with more
+            information and resources.
+          </p>
+          <form id="contactForm" class="formcard">
+            <fieldset>
+              <label for="first_name">First Name</label>
+              <input
+                type="text"
+                id="first_name"
+                name="first_name"
+                placeholder="First Name"
+                class="form-control"
+                required
+              />
+
+              <label for="last_name">Last Name</label>
+              <input
+                type="text"
+                id="last_name"
+                name="last_name"
+                placeholder="Last Name"
+                class="form-control"
+                required
+              />
+
+              <label for="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Email"
+                class="form-control"
+                required
+              />
+
+              <label for="organization">Organization Name</label>
+              <input
+                type="text"
+                id="organization"
+                name="organization"
+                placeholder="Organization Name"
+                class="form-control"
+                required
+              />
+
+              <label for="message">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Leave a Message"
+                class="form-control"
+              ></textarea>
+            </fieldset>
+            <input
+              class="btn btn-success btn-lg action-button"
+              type="submit"
+              value="Get in Touch"
+            />
+          </form>
+        </div>
+      </section>
+    </div>
+
+    <!-- Firebase config and initialization (replace with your config) -->
+    <script>
+      const firebaseConfig = {
+        apiKey: "YOUR_API_KEY",
+        authDomain: "YOUR_AUTH_DOMAIN",
+        projectId: "YOUR_PROJECT_ID",
+        // ...other config
+      };
+      firebase.initializeApp(firebaseConfig);
+    </script>
+    <script src="contactengine.js"></script>
+  </body>
+</html>

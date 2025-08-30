@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Full Evaluation | RAPAT Tool</title>
+    <title>Results | RAPAT Tool</title>
     <meta property="og:title" content="RAPAT Tool" />
-    <meta property="og:url" content="https://health.rapat.org/full_survey" />
+    <meta property="og:url" content="https://health.rapat.org/" />
     <meta property="og:type" content="website" />
     <meta
       property="og:image"
@@ -13,42 +13,25 @@
       property="og:description"
       content="Create a healthcare organization that can contend with growing demands and shrinking resources"
     />
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Latest compiled and minified CSS -->
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
-      integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ=="
-      crossorigin="anonymous"
     />
-    <!-- Optional theme -->
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"
-      integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r"
-      crossorigin="anonymous"
     />
-    <!-- Latest compiled and minified JavaScript -->
-    <script
-      src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"
-      integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ=="
-      crossorigin="anonymous"
-    ></script>
-
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="media.css" />
     <link rel="stylesheet" type="text/css" href="style.css" />
     <link rel="stylesheet" type="text/css" href="survey.css" />
-    <link rel="stylesheet" href="awesomplete.css" />
-    <script src="awesomplete.min.js"></script>
-
     <link
       href="https://fonts.googleapis.com/css?family=Muli:400,300"
       rel="stylesheet"
       type="text/css"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
     <style>
       .checkmark__circle {
         stroke-dasharray: 166;
@@ -59,7 +42,6 @@
         fill: none;
         animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
       }
-
       .checkmark {
         width: 56px;
         height: 56px;
@@ -73,14 +55,12 @@
         animation: fill 0.4s ease-in-out 0.4s forwards,
           scale 0.3s ease-in-out 0.9s both;
       }
-
       .checkmark__check {
         transform-origin: 50% 50%;
         stroke-dasharray: 48;
         stroke-dashoffset: 48;
         animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
       }
-
       @keyframes stroke {
         100% {
           stroke-dashoffset: 0;
@@ -105,19 +85,18 @@
   <body>
     <header class="navbar">
       <div class="container">
-        <!-- <a href="#"><span class="glyphicon glyphicon-menu-left"></span> RAPAT</a> -->
         <a href="index.html"><img src="repat_logo.png" height="60px" /></a>
         <div></div>
         <div></div>
         <a class="btn btn-primary" href="contact.php" role="button"
-          >Get in Touch</a
+          >Get In Touch</a
         >
       </div>
     </header>
 
-    <section>
+    <section class="main">
       <div class="container">
-        <h1>Congratulations, you have successfully completed the survey!</h1>
+        <h1>Congratulations, you have successfully completed RAPAT!</h1>
         <svg
           class="checkmark"
           xmlns="http://www.w3.org/2000/svg"
@@ -136,8 +115,26 @@
             d="M14.1 27.2l7.1 7.2 16.7-16.8"
           />
         </svg>
+        <p>Thank you for voicing your opinion and providing your feedback.</p>
       </div>
-      <div class="clearfix"></div>
     </section>
+    <section>
+      <div class="container">
+        <p>Back to the RAPAT Homepage</p>
+        <a class="btn btn-primary" href="index.html" role="button"
+          >RAPAT Home</a
+        >
+      </div>
+    </section>
+    <section class="blue">
+      <div class="container">
+        <h1>Have questions about RAPAT?</h1>
+        <p>Get in touch with RAPAT to learn more:</p>
+        <a class="btn btn-primary btn-lg" href="contact.php" role="button"
+          >Get in Touch</a
+        >
+      </div>
+    </section>
+    <script src="send_full_results.js"></script>
   </body>
 </html>
