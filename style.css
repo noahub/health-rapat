@@ -1,3 +1,65 @@
+
+/* Modern Results Card Styles */
+.result-card {
+  background: #f8f9fa;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  padding: 32px 24px 24px 24px;
+  margin-bottom: 32px;
+  transition: box-shadow 0.2s;
+  border: 2px solid #bbb;
+}
+.result-card:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+.result-badge {
+  display: inline-block;
+  padding: 3px 12px;
+  border-radius: 16px;
+  font-weight: 500;
+  font-size: 0.95em;
+  margin-bottom: 12px;
+  letter-spacing: 0.3px;
+}
+.result-badge.strength {
+  background: #28a745;
+  color: #fff;
+}
+.result-badge.weakness {
+  background: #dc3545;
+  color: #fff;
+}
+.result-badge.improvement {
+  background: #ffc107;
+  color: #333;
+}
+.result-title {
+  font-size: 1.25em;
+  font-weight: 600;
+  margin-bottom: 8px;
+  text-align: center;
+}
+}
+.result-title .icon {
+  margin-right: 10px;
+  font-size: 1.2em;
+}
+.result-desc {
+  font-size: 1em;
+  color: #444;
+  line-height: 1.7;
+}
+@media (min-width: 768px) {
+  .results {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+  }
+  .result-card {
+    flex: 1 1 45%;
+    margin-bottom: 0;
+  }
+}
 * {
   font-family: Muli, Helvetica, Arial, sans-serif;
   box-sizing: border-box;
@@ -32,6 +94,11 @@ header .btn {
 .btn {
   margin: 20px 0px;
   padding: 12px !important;
+}
+
+.next.action-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .btn-warning {
