@@ -47,7 +47,7 @@ include dirname(__FILE__)."/send_results.php";
 <link rel="stylesheet" type="text/css" href="media.css">
 <link rel="stylesheet" type="text/css" href="style.css">
 <link rel="stylesheet" type="text/css" href="survey.css">
-<link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Muli:700,400,300' rel='stylesheet' type='text/css'>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script type="text/javascript">

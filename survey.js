@@ -40,7 +40,7 @@ var checkForBlanks = () => {
   return blank;
 };
 
-$("#first_name, #last_name, #email, #location").on("keyup", function (e) {
+$("#first_name, #last_name, #email, #location").on("keyup", function () {
   $(this).removeClass("isblank");
   blankerror.addClass("hide");
 });
@@ -65,7 +65,7 @@ $(".next").click(function () {
     current_fs.animate(
       { opacity: 0 },
       {
-        step: (now, mx) => {
+        step: (now) => {
           //as the opacity of current_fs reduces to 0 - stored in "now"
           //1. scale current_fs down to 80%
           scale = 1 - (1 - now) * 0.2;
@@ -106,7 +106,7 @@ $(".previous").click(function () {
   current_fs.animate(
     { opacity: 0 },
     {
-      step: (now, mx) => {
+      step: (now) => {
         //as the opacity of current_fs reduces to 0 - stored in "now"
         //1. scale previous_fs from 80% to 100%
         scale = 0.8 + (1 - now) * 0.2;
@@ -131,36 +131,99 @@ $(".previous").click(function () {
   );
 });
 
+// Helper to get Firestore instance from global
+function getFirestoreDB() {
+  if (window.firebase && window.firebase.db) {
+    return window.firebase.db;
+  } else {
+    console.error(
+      "Firestore not initialized. Make sure Firebase SDK is loaded and configured in your HTML."
+    );
+    return null;
+  }
+}
+
+// Helper to safely access Firestore helpers
+function getFirestoreHelpers() {
+  if (
+    window.firestoreHelpers &&
+    window.firestoreHelpers.addDoc &&
+    window.firestoreHelpers.collection
+  ) {
+    return window.firestoreHelpers;
+  } else {
+    console.error(
+      "Firestore helpers not found. Make sure the Firebase <script type='module'> is loaded before this script."
+    );
+    return null;
+  }
+}
+
 $("#msform").on("submit", (e) => {
   e.preventDefault();
 
-  // Save all relevant fields to sessionStorage
-  sessionStorage.setItem("first_name", $("#first_name").val());
-  sessionStorage.setItem("last_name", $("#last_name").val());
-  sessionStorage.setItem("email", $("#email").val());
-  sessionStorage.setItem("location", $("#location").val());
-  sessionStorage.setItem("budget", $("input[name='budget']:checked").val());
-  sessionStorage.setItem("process", $("input[name='process']:checked").val());
-  sessionStorage.setItem("evaluate", $("input[name='evaluate']:checked").val());
-  sessionStorage.setItem(
-    "question1",
-    $("input[name='question1']:checked").val()
-  );
-  sessionStorage.setItem(
-    "question2",
-    $("input[name='question2']:checked").val()
-  );
-  sessionStorage.setItem(
-    "question3",
-    $("input[name='question3']:checked").val()
-  );
-  sessionStorage.setItem(
-    "question4",
-    $("input[name='question4']:checked").val()
-  );
+  // Set submit button to 'Submitting...', disable, and set opacity
+  var $submitBtn = $("input[type='submit'], input[type='Submit']", this);
+  $submitBtn.val("Submitting...").prop("disabled", true).css("opacity", "0.5");
 
-  // Redirect to results page
-  window.location.href = "results.html";
+  // First store all values in variables
+  const firstName = $("#first_name").val();
+  const lastName = $("#last_name").val();
+  const email = $("#email").val();
+  const location = $("#location").val();
+  const budget = $("input[name='budget']:checked").val();
+  const process = $("input[name='process']:checked").val();
+  const evaluate = $("input[name='evaluate']:checked").val();
+  const question1 = $("input[name='question1']:checked").val();
+  const question2 = $("input[name='question2']:checked").val();
+  const question3 = $("input[name='question3']:checked").val();
+  const question4 = $("input[name='question4']:checked").val();
+
+  // Next, submit to Firestore using modular SDK
+  const db = getFirestoreDB();
+  const helpers = getFirestoreHelpers();
+
+  if (db && helpers) {
+    const { addDoc, collection } = helpers;
+    addDoc(collection(db, "rapat_survey_submissions"), {
+      first_name: firstName,
+      last_name: lastName,
+      email: email,
+      location: location,
+      budget: budget,
+      process: process,
+      evaluate: evaluate,
+      question1: question1,
+      question2: question2,
+      question3: question3,
+      question4: question4,
+    })
+      .then(() => {
+        // Handle successful submission
+        console.log("Successfully added document!");
+
+        // Next save all relevant fields to sessionStorage
+        sessionStorage.setItem("first_name", firstName);
+        sessionStorage.setItem("last_name", lastName);
+        sessionStorage.setItem("email", email);
+        sessionStorage.setItem("location", location);
+        sessionStorage.setItem("budget", budget);
+        sessionStorage.setItem("process", process);
+        sessionStorage.setItem("evaluate", evaluate);
+        sessionStorage.setItem("question1", question1);
+        sessionStorage.setItem("question2", question2);
+        sessionStorage.setItem("question3", question3);
+        sessionStorage.setItem("question4", question4);
+
+        // Finally redirect to results page
+        window.location.href = "results.html";
+      })
+      .catch((error) => {
+        console.error("Error adding document: ", error);
+        window.location.href = "error.html";
+        return;
+      });
+  }
 });
 
 $(document).ready(() => {
